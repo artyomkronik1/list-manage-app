@@ -1,0 +1,11 @@
+<div class="container" #container (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
+	<div class="item-card" [ngStyle]="{'background-color': item?.color}">
+
+	</div>
+
+	<div class="card-name">
+		<span class=" item-name">{{
+			item?.name
+			}}</span>
+
+	</div>

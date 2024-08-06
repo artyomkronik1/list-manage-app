@@ -1,0 +1,73 @@
+<form [formGroup]="itemForm" (ngSubmit)="onSave()" class="item-form" @fadeInOut>
+	<!-- header -->
+	<div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+		<h3 style="color:#016179;">Create new</h3>
+		<button (click)="onCancel()" style="border: none; background: none;">
+			<i style="display: flex; font-size: 20px; cursor: pointer; color: black;"
+				class="fa fa-close"></i>
+		</button>
+	</div>
+	<!-- main -->
+	<div style="height: 100%; gap: 20px; display: flex; flex-direction: column;">
+
+		<!-- tag name -->
+		<div
+			style="display: flex; width: 100%; justify-content: space-between; align-items: baseline;">
+			<div style="display: flex; width: 80%; flex-direction: column; gap: 5px;">
+				<span style="font-size: 12px; font-weight:500;">Name</span>
+				<div style="display: flex; width: 100%; background-color: white;"
+					class="custom-form-field">
+
+					<input matInput placeholder="Type tag name..."
+						style="width: 100%; border: none; outline: none;
+				 font-style: italic; color:#a9a9a9" formControlName="name">
+				</div>
+
+			</div>
+			<!-- tag color -->
+			<div
+				style="display: flex; flex-direction: column; gap: 5px; height: 100%;">
+				<span
+					style="font-size: 12px; font-weight:500;">{{'color'}}</span>
+				<div style="display: flex; gap: 10px;">
+					<input type="color" matInput
+						formControlName="color"
+						placeholder="Choose a color"
+						style="height: 35px;" />
+				</div>
+			</div>
+
+		</div>
+		<!-- tag description -->
+		<div style="display: flex; flex-direction: column; gap: 5px;">
+			<span style=" font-size: 12px; font-weight:500;">{{'Tag
+				description'}}</span>
+			<div style="display: flex; width: 100%; background-color: white; height: 85px;"
+				class="custom-form-field">
+				<textarea matInput formControlName="description"
+					style="border: none; outline: none; width: 100%;font-style: italic; color:#a9a9a9"
+					placeholder="Type tag description"></textarea>
+			</div>
+		</div>
+		<!-- created by -->
+		<div style="display: flex; width: 100%; flex-direction: column; gap: 5px;">
+			<span style="font-size: 12px; font-weight:500;">Creator Name</span>
+			<div style="display: flex; width: 100%; background-color: white;"
+				class="custom-form-field">
+
+				<input matInput placeholder="Type creator name..." style="width: 100%; border: none; outline: none;
+					 font-style: italic; color:#a9a9a9" formControlName="createdBy">
+			</div>
+
+		</div>
+
+
+		<!-- footer buttons -->
+
+	</div>
+	<div class="form-buttons">
+		<button class="btn_cancel" (click)="onCancel()">CANCEL</button>
+
+		<button class="btn_accept" type="submit">SAVE</button>
+	</div>
+</form>

@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Item Info</h1>
+<div mat-dialog-content>
+	<form [formGroup]="itemForm" style="display: flex; flex-direction: column; gap: 20px;">
+		<!-- name input -->
+		<mat-form-field>
+			<mat-label>Name</mat-label>
+			<input matInput formControlName="name" />
+		</mat-form-field>
+		<!-- color input -->
+		<div style="display: flex; flex-direction: column; gap: 5px;">
+			<span>{{'color'}}</span>
+			<div style="display: flex; gap: 10px;">
+				<input type="color" matInput formControlName="color"
+					style="width: 20px;"
+					(input)="onColorChange($event)" />
+				<span>{{colorCode}}</span>
+			</div>
+		</div>
+		<!-- created date automatically - today -->
+
+		<mat-form-field>
+			<mat-label>Created Date</mat-label>
+			<input matInput formControlName="createdDate" readonly />
+		</mat-form-field>
+		<!-- last updated date automatically - today -->
+
+		<mat-form-field>
+			<mat-label>Last Update</mat-label>
+			<input matInput formControlName="lastUpdate" readonly />
+		</mat-form-field>
+		<!-- created by input -->
+		<mat-form-field>
+			<mat-label>Created By</mat-label>
+			<input matInput formControlName="createdBy" />
+		</mat-form-field>
+	</form>
+</div>
+<!-- footer buttons -->
+<div mat-dialog-actions style="display: flex; justify-content: space-between; gap: 10px; padding: 20px;">
+	<button class="btn_accept" (click)="onSave()">SAVE</button>
+	<button class="btn_cancel" (click)="onCancel()">CANCEL</button>
+
+</div>

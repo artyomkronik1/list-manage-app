@@ -1,0 +1,148 @@
+<app-item-form (close)="closeDialog()" *ngIf="showForm" class="item-form-sidebar"
+	(save)="addItem($event)"></app-item-form>
+
+
+<div class="item-list-container">
+	<!-- search url -->
+	<div style="display: flex; width: 30%; justify-content: start;gap: 5px; margin-bottom: 20px;">
+
+		<div style="display: flex; width: 100%; background-color: white;"
+			class="custom-form-field">
+
+			<input class="input" matInput placeholder="URL"
+				style="width: 100%;  outline: none; font-style: italic; color:#a9a9a9"
+				formControlName="search">
+
+
+
+		</div>
+
+		<button mat-flat-button
+			style="background-color:rgb(45, 126, 240); color: white;">GO</button>
+
+
+	</div>
+	<!-- header -->
+	<div style="display: flex; justify-content: space-between; width: 100%;">
+		<form [formGroup]="searchForm"
+			style="display: flex; flex-direction: column;gap: 15px; width: 100%;">
+			<div
+				style="display: flex; align-items: center; width: 100%; justify-content: space-between;">
+				<span
+					style="font-size: 18px; color:#016179; font-weight: 500;">Management
+					Tool</span>
+				<div
+					style="display: flex; align-items: baseline; gap: 20px;">
+
+					<i aria-hidden="false"
+						(click)="setView('tile')"
+						class="fa fa-th-large"
+						[ngClass]="viewMode === 'tile' ? 'viewIconChecked' : 'viewIcon'"></i>
+
+
+					<i [ngClass]="viewMode=='list'? 'viewIconChecked': 'viewIcon'"
+						[ngClass]="viewMode=='list'? 'viewIconChecked': 'viewIcon'"
+						(click)="setView('list')"
+						class="fa fa-bars"
+						aria-hidden="true"></i>
+
+
+
+
+					<button mat-icon-button class="add-button"
+						(click)="openForm()">
+						<mat-icon>add</mat-icon>
+					</button>
+				</div>
+			</div>
+			<!-- search -->
+			<div style="display: flex; width: 100%; background-color: white;"
+				class="custom-form-field">
+
+				<button mat-icon-button>
+					<mat-icon>search</mat-icon>
+				</button>
+				<input class="input" matInput placeholder="Find by name..."
+					style="width: 100%;  outline: none; font-style: italic; color:#a9a9a9"
+					formControlName="search">
+
+
+
+
+			</div>
+		</form>
+	</div>
+	<!-- list view = table -->
+	<div *ngIf="viewMode=='list'" style="width: 100%;">
+		<mat-table [dataSource]="ListItems" matSort class="mat-elevation-z8">
+
+			<ng-container matColumnDef="color">
+				<mat-header-cell *matHeaderCellDef> Color </mat-header-cell>
+				<mat-cell *matCellDef="let element">
+					<div [style.background-color]="element.color"
+						class="color-box"></div>
+				</mat-cell>
+			</ng-container>
+
+			<ng-container matColumnDef="name">
+				<mat-header-cell *matHeaderCellDef mat-sort-header> Name
+				</mat-header-cell>
+				<mat-cell *matCellDef="let element"> {{element.name}}
+				</mat-cell>
+			</ng-container>
+
+			<ng-container matColumnDef="createdDate">
+				<mat-header-cell *matHeaderCellDef> Created Date
+				</mat-header-cell>
+				<mat-cell *matCellDef="let element"> {{element.createdDate}}
+				</mat-cell>
+			</ng-container>
+
+			<ng-container matColumnDef="lastUpdate">
+				<mat-header-cell *matHeaderCellDef> Last Update
+				</mat-header-cell>
+				<mat-cell *matCellDef="let element"> {{element.lastUpdate}}
+				</mat-cell>
+			</ng-container>
+
+			<ng-container matColumnDef="createdBy">
+				<mat-header-cell *matHeaderCellDef> Created By
+				</mat-header-cell>
+				<mat-cell *matCellDef="let element"> {{element.createdBy}}
+				</mat-cell>
+			</ng-container>
+
+			<ng-container matColumnDef="actions">
+				<mat-header-cell *matHeaderCellDef> Actions
+				</mat-header-cell>
+				<mat-cell *matCellDef="let element">
+					<button mat-button
+						(click)="updateItem(element)">Edit</button>
+					<button mat-button
+						(click)="deleteItem(element.id)">Delete</button>
+				</mat-cell>
+			</ng-container>
+
+			<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+			<mat-row (click)="openEditDialog(row)"
+				*matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+		</mat-table>
+
+
+	</div>
+	<!-- tile view -->
+	<div *ngIf="viewMode === 'tile'"
+		style="display: flex; justify-content: start; width: 100%; gap: 10px; margin-top: 15px; overflow-x: scroll;">
+		<div *ngFor="let item of tiledItems$ | async" (click)="openEditDialog(item)">
+			<app-item-card [item]="item"></app-item-card>
+		</div>
+	</div>
+
+
+
+
+	<!-- pagination -->
+	<mat-paginator style="margin-top: 20px;" [pageSizeOptions]="[5, 10, 15, 20	]"
+		showFirstLastButtons></mat-paginator>
+</div>

@@ -1,0 +1,9 @@
+<div class="container" #container (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
+	<div class="color" [ngStyle]="{'background-color': item?.color}"></div>
+	<div class="text">{{item?.name}}</div>
+	<div class="text">{{item?.createdDate}}</div>
+	<div class="text">{{item?.lastUpdate}}</div>
+	<div class="text">{{item?.createdBy}}</div>
+
+
+</div>

@@ -1,0 +1,30 @@
+// main colors
+$blue: rgb(45, 126, 240);
+$grey: rgb(161, 161, 161);
+
+// styles for accept and cancel btns
+.btn_accept {
+	width: 100px;
+	display: flex;
+	height: 40px;
+	justify-content: center;
+	align-items: center;
+	font-size: 10px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	background-color: rgb(101, 192, 107);
+}
+
+.btn_cancel {
+	cursor: pointer;
+	width: 100px;
+	display: flex;
+	height: 40px;
+	font-size: 10px;
+	justify-content: center;
+	align-items: center;
+	color: #a9a9a9;
+	border: 2px solid #a9a9a9;
+	background-color: rgb(248, 248, 248);
+}

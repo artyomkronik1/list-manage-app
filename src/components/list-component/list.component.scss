@@ -1,0 +1,189 @@
+@import "../../assets/global-styles/styles.module.scss";
+
+.color-box {
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+}
+
+.item-list-container {
+	display: flex;
+	flex-direction: column;
+	//	align-items: center;
+}
+
+.card-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+mat-card {
+	width: 300px;
+	/* Adjust the width of the card as needed */
+	margin: 16px;
+}
+
+.input {
+	border: none !important;
+}
+
+/* src/app/items/item-list/item-list.component.css */
+
+.viewIcon {
+	color: #008fb3;
+	cursor: pointer;
+	font-size: 25px;
+
+}
+
+.color-box {
+	border-radius: 8px;
+}
+
+.viewIconChecked {
+	color: $blue;
+	cursor: pointer;
+	font-size: 25px;
+}
+
+.custom-form-field .mat-form-field-appearance-outline .mat-form-field-outline {
+	border-color: black;
+	/* Black border */
+}
+
+.custom-form-field .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+	border-color: black;
+	/* Ensure the thick border is also black */
+}
+
+.custom-form-field .mat-form-field-appearance-outline .mat-form-field-outline-start,
+.custom-form-field .mat-form-field-appearance-outline .mat-form-field-outline-end,
+.custom-form-field .mat-form-field-appearance-outline .mat-form-field-outline-gap {
+	border-color: black;
+	/* Ensure all parts of the outline are black */
+}
+
+.custom-form-field .mat-form-field-appearance-outline .mat-form-field-label {
+	color: black;
+	/* Label color */
+}
+
+.custom-form-field .mat-form-field-appearance-outline .mat-form-field-infix {
+	background-color: white;
+	/* White background for the input field */
+}
+
+.custom-form-field .mat-form-field-appearance-outline .mat-icon {
+	color: black;
+	/* Black color for the icon */
+}
+
+/* Ensure the sorting header has the correct styles */
+.mat-sort-header {
+	cursor: pointer;
+}
+
+.custom-form-field .mat-form-field-appearance-outline .mat-form-field-flex {
+	width: 100%;
+	/* Ensure input field inside mat-form-field takes full width */
+}
+
+.edit-form {
+	margin-top: 20px;
+}
+
+.edit-form form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.edit-form label {
+	display: flex;
+	flex-direction: column;
+}
+
+.custom-form-field .mat-form-field-appearance-outline .mat-form-field-ripple {
+	background-color: black;
+	/* Black color for the ripple effect */
+}
+
+/* src/app/items/item-list/item-list.component.css */
+.item-list-container {
+	display: flex;
+	width: 100%;
+	justify-content: start;
+}
+
+.item-card-container {
+	width: 100%;
+	/* Adjust width as needed */
+}
+
+.add-button {
+	background-color: #008fb3;
+	/* Blue background */
+	color: white;
+	/* White icon color */
+	border-radius: 50%;
+	/* Rounded button */
+	padding: 12px;
+	height: 35px;
+	width: 35px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	/* Padding */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	/* Optional shadow */
+
+	/* Optional: Adjust position as needed */
+}
+
+.add-button:hover {
+	background-color: #006f8c;
+	/* Darker blue background on hover */
+}
+
+.add-button mat-icon {
+	font-weight: 800;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	/* Adjust icon size */
+}
+
+.item-form-sidebar {
+	z-index: 1000;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 40%;
+	height: 100%;
+	background-color: white;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	transition: transform 0.3s ease;
+}
+
+.item-form-sidebar.ng-enter,
+.item-form-sidebar.ng-leave {
+	transition: transform 0.3s ease;
+}
+
+.item-form-sidebar.ng-enter {
+	transform: translateX(100%);
+}
+
+.item-form-sidebar.ng-leave {
+	transform: translateX(0);
+}
+
+.item-form-sidebar.ng-enter-active {
+	transform: translateX(0);
+}
+
+.item-form-sidebar.ng-leave-active {
+	transform: translateX(100%);
+}
