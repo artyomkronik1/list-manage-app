@@ -5,8 +5,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 
 @Component({
 	selector: 'app-item-form',
-	templateUrl: './item-form.component.html',
-	styleUrls: ['./item-form.component.css'],
+	templateUrl: './create-item-form.component.html',
+	styleUrls: ['./create-item-form.component.css'],
 	animations: [
 		trigger('fadeInOut', [
 			state('void', style({ opacity: 0 })),
@@ -21,7 +21,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 		])
 	]
 })
-export class ItemFormComponent {
+export class CreateItemFormComponent {
 	itemForm: FormGroup;
 	@Output() close = new EventEmitter<void>();
 	@Output() save = new EventEmitter<Item>();

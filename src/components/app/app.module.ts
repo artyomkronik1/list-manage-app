@@ -16,22 +16,20 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { itemReducer } from 'src/store/item.reducer';
 import { ItemEffects } from 'src/store/item.effects';
-import { ItemFormComponent } from '../itemForm-component/item-form.component';
+import { CreateItemFormComponent } from '../createItemForm-component/create-item-form.component';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card'; // Import MatCardModule
 import { ItemCardComponent } from '../itemCard-component/item-card.component';
 import { EditItemDialogComponent } from 'src/dialogs/edit-item.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ListComponent } from '../list-component/list.component';
-import { ItemListComponent } from '../itemList-component/item-list-component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemFormComponent,
+    CreateItemFormComponent,
     ListComponent,
     ItemCardComponent,
-    ItemListComponent,
     EditItemDialogComponent,
   ],
   imports: [
